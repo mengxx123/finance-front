@@ -3,8 +3,8 @@ import Router from 'vue-router'
 
 const Tax = resolve => require(['@/views/Tax'], resolve)
 const TaxHelp = resolve => require(['@/views/TaxHelp'], resolve)
+const ExchangeRate = resolve => require(['@/views/ExchangeRate'], resolve)
 const About = resolve => require(['@/views/About'], resolve)
-
 const Error404 = resolve => require(['@/views/error/Error404'], resolve)
 
 Vue.use(Router)
@@ -17,6 +17,10 @@ let routes = [
     {
         path: '/tax/help',
         component: TaxHelp
+    },
+    {
+        path: '/exchangeRate',
+        component: ExchangeRate
     },
     {
         path: '/about',
