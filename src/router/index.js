@@ -4,6 +4,10 @@ import Router from 'vue-router'
 const Tax = resolve => require(['@/views/Tax'], resolve)
 const TaxHelp = resolve => require(['@/views/TaxHelp'], resolve)
 const ExchangeRate = resolve => require(['@/views/ExchangeRate'], resolve)
+const Deposit = resolve => require(['@/views/Deposit'], resolve)
+const DepositHelp = resolve => require(['@/views/DepositHelp'], resolve)
+const Credit = resolve => require(['@/views/Credit'], resolve)
+const CreditHelp = resolve => require(['@/views/CreditHelp'], resolve)
 const About = resolve => require(['@/views/About'], resolve)
 const Error404 = resolve => require(['@/views/error/Error404'], resolve)
 
@@ -21,6 +25,22 @@ let routes = [
     {
         path: '/exchangeRate',
         component: ExchangeRate
+    },
+    {
+        path: '/deposit',
+        component: Deposit
+    },
+    {
+        path: '/deposit/help',
+        component: DepositHelp
+    },
+    {
+        path: '/credit',
+        component: Credit
+    },
+    {
+        path: '/credit/help',
+        component: CreditHelp
     },
     {
         path: '/about',

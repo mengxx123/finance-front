@@ -6,6 +6,12 @@
                 <ui-list-item title="个人所得税" to="/">
                     <ui-icon slot="left" value="grade"/>
                 </ui-list-item>
+                <ui-list-item title="存款计算器" to="/deposit">
+                    <ui-icon slot="left" value="grade"/>
+                </ui-list-item>
+                <ui-list-item title="信用卡分期计算器" to="/credit">
+                    <ui-icon slot="left" value="grade"/>
+                </ui-list-item>
                 <ui-list-item title="汇率查询" to="/exchangeRate">
                     <ui-icon slot="left" value="grade"/>
                 </ui-list-item>
