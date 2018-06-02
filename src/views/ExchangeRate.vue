@@ -48,6 +48,17 @@
         },
         methods: {
             init() {
+                let lastRequest = this.$storage.get('lastRequest')
+                console.log(lastRequest, (new Date().getTime() - new Date(lastRequest).getTime()) < 15 * 60 * 1000)
+                if (lastRequest && (new Date().getTime() - new Date(lastRequest).getTime()) < 15 * 60 * 1000) {
+                    let data = this.$storage.get('data')
+                    if (data) {
+                        console.log('从缓存中获取数据')
+                        this.data = data
+                        this.dealData()
+                        return
+                    }
+                }
                 let url = '/rate?base=' + this.base
                 // url = '/'
                 this.$http.get(url).then(
@@ -56,18 +67,17 @@
                         console.log('数据')
                         console.log(data)
                         this.data = data
-                        this.rates = this.data.rates
-                        this.time = format(new Date(this.data.timestamp * 1000), 'yyyy-MM-dd hh:mm')
-                        // for (let key in this.data.rates) {
-                        //     this.rates.push({
-                        //         code: key,
-                        //         value: this.data.rates[key]
-                        //     })
-                        // }
+                        this.$storage.set('lastRequest', new Date().getTime())
+                        this.$storage.set('data', this.data)
+                        this.dealData()
                     },
                     response => {
                         console.log(response)
                     })
+            },
+            dealData(data) {
+                this.rates = this.data.rates
+                this.time = format(new Date(this.data.timestamp * 1000), 'yyyy-MM-dd hh:mm')
             },
             getFlagSrc(code) {
                 return 'http://img1.yunser.com/flag/png/' + code.toLowerCase().substr(0, 2) + '.png'
