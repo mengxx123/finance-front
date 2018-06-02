@@ -4,6 +4,7 @@ import Router from 'vue-router'
 const Tax = resolve => require(['@/views/Tax'], resolve)
 const TaxHelp = resolve => require(['@/views/TaxHelp'], resolve)
 const ExchangeRate = resolve => require(['@/views/ExchangeRate'], resolve)
+const ExchangeRateConvert = resolve => require(['@/views/ExchangeRateConvert'], resolve)
 const Deposit = resolve => require(['@/views/Deposit'], resolve)
 const DepositHelp = resolve => require(['@/views/DepositHelp'], resolve)
 const Credit = resolve => require(['@/views/Credit'], resolve)
@@ -25,6 +26,10 @@ let routes = [
     {
         path: '/exchangeRate',
         component: ExchangeRate
+    },
+    {
+        path: '/exchangeRate/convert',
+        component: ExchangeRateConvert
     },
     {
         path: '/deposit',

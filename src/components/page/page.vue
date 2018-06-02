@@ -12,9 +12,14 @@
                 <ui-list-item title="信用卡分期计算器" to="/credit">
                     <ui-icon slot="left" value="grade"/>
                 </ui-list-item>
+                <ui-divider />
                 <ui-list-item title="汇率查询" to="/exchangeRate">
                     <ui-icon slot="left" value="grade"/>
                 </ui-list-item>
+                <ui-list-item title="汇率转换" to="/exchangeRate/convert">
+                    <ui-icon slot="left" value="grade"/>
+                </ui-list-item>
+                <ui-divider />
                 <ui-list-item title="关于" href="http://about.yunser.com/" target="_blank">
                     <ui-icon slot="left" value="grade"/>
                 </ui-list-item>
