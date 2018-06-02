@@ -1,6 +1,7 @@
 <template>
     <my-page title="汇率查询">
         <ui-article v-if="rates.length">
+            <p>更新于：{{ time }}</p>
             <table>
                 <tr>
                     <!--<th>国家</th>-->
@@ -30,6 +31,7 @@
 </template>
 
 <script>
+    import {format} from '@/util/time'
     import country from '@/util/country'
 
     export default {
@@ -37,7 +39,8 @@
             return {
                 base: 'USD',
                 rates: [],
-                country: country
+                country: country,
+                time: ''
             }
         },
         mounted() {
@@ -45,17 +48,22 @@
         },
         methods: {
             init() {
-                this.$http.get('/rate?base=' + this.base).then(
+                let url = '/rate?base=' + this.base
+                // url = '/'
+                this.$http.get(url).then(
                     response => {
                         let data = response.data
+                        console.log('数据')
                         console.log(data)
                         this.data = data
-                        for (let key in this.data.rates) {
-                            this.rates.push({
-                                code: key,
-                                value: this.data.rates[key]
-                            })
-                        }
+                        this.rates = this.data.rates
+                        this.time = format(new Date(this.data.timestamp * 1000), 'yyyy-MM-dd hh:mm')
+                        // for (let key in this.data.rates) {
+                        //     this.rates.push({
+                        //         code: key,
+                        //         value: this.data.rates[key]
+                        //     })
+                        // }
                     },
                     response => {
                         console.log(response)
