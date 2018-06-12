@@ -12,6 +12,9 @@
                 <ui-list-item title="信用卡分期计算器" to="/credit">
                     <ui-icon slot="left" value="grade"/>
                 </ui-list-item>
+                <ui-list-item title="退休养老保险金计算器" to="/pension">
+                    <ui-icon slot="left" value="grade"/>
+                </ui-list-item>
                 <ui-divider />
                 <ui-list-item title="汇率查询" to="/exchangeRate">
                     <ui-icon slot="left" value="grade"/>

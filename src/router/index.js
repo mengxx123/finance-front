@@ -9,6 +9,8 @@ const Deposit = resolve => require(['@/views/Deposit'], resolve)
 const DepositHelp = resolve => require(['@/views/DepositHelp'], resolve)
 const Credit = resolve => require(['@/views/Credit'], resolve)
 const CreditHelp = resolve => require(['@/views/CreditHelp'], resolve)
+const Pension = resolve => require(['@/views/Pension'], resolve)
+const PensionHelp = resolve => require(['@/views/PensionHelp'], resolve)
 const About = resolve => require(['@/views/About'], resolve)
 const Error404 = resolve => require(['@/views/error/Error404'], resolve)
 
@@ -46,6 +48,14 @@ let routes = [
     {
         path: '/credit/help',
         component: CreditHelp
+    },
+    {
+        path: '/pension',
+        component: Pension
+    },
+    {
+        path: '/pension/help',
+        component: PensionHelp
     },
     {
         path: '/about',
