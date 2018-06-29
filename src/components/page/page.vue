@@ -22,6 +22,15 @@
                 <ui-list-item title="汇率转换" to="/exchangeRate/convert">
                     <ui-icon slot="left" value="grade"/>
                 </ui-list-item>
+                <ui-list-item title="会计科目汇总表" to="/subject">
+                    <ui-icon slot="left" value="grade"/>
+                </ui-list-item>
+                <ui-list-item title="印花税计算器" to="/stampDuty">
+                    <ui-icon slot="left" value="grade"/>
+                </ui-list-item>
+                <ui-list-item title="五险一金计算器" to="/tax51">
+                    <ui-icon slot="left" value="grade"/>
+                </ui-list-item>
                 <ui-divider />
                 <ui-list-item title="关于" href="http://about.yunser.com/" target="_blank">
                     <ui-icon slot="left" value="grade"/>
