@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 const Tax = resolve => require(['@/views/Tax'], resolve)
+const Home = resolve => require(['@/views/Home'], resolve)
 const Tax51 = resolve => require(['@/views/Tax51'], resolve)
 const TaxHelp = resolve => require(['@/views/TaxHelp'], resolve)
 const ExchangeRate = resolve => require(['@/views/ExchangeRate'], resolve)
@@ -14,6 +15,7 @@ const Pension = resolve => require(['@/views/Pension'], resolve)
 const PensionHelp = resolve => require(['@/views/PensionHelp'], resolve)
 const Subject = resolve => require(['@/views/Subject'], resolve)
 const StampDuty = resolve => require(['@/views/StampDuty'], resolve)
+const Bank = resolve => require(['@/views/Bank'], resolve)
 const About = resolve => require(['@/views/About'], resolve)
 const Error404 = resolve => require(['@/views/error/Error404'], resolve)
 
@@ -22,6 +24,10 @@ Vue.use(Router)
 let routes = [
     {
         path: '/',
+        component: Home
+    },
+    {
+        path: '/tax',
         component: Tax
     },
     {
@@ -71,6 +77,10 @@ let routes = [
     {
         path: '/stampDuty',
         component: StampDuty
+    },
+    {
+        path: '/bank',
+        component: Bank
     },
     {
         path: '/about',
