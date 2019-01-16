@@ -16,7 +16,7 @@ const PensionHelp = resolve => require(['@/views/PensionHelp'], resolve)
 const Subject = resolve => require(['@/views/Subject'], resolve)
 const StampDuty = resolve => require(['@/views/StampDuty'], resolve)
 const Bank = resolve => require(['@/views/Bank'], resolve)
-const About = resolve => require(['@/views/About'], resolve)
+const Currency = resolve => require(['@/views/Currency'], resolve)
 const Error404 = resolve => require(['@/views/error/Error404'], resolve)
 
 Vue.use(Router)
@@ -83,8 +83,8 @@ let routes = [
         component: Bank
     },
     {
-        path: '/about',
-        component: About
+        path: '/currency',
+        component: Currency
     },
     {
         path: '*',

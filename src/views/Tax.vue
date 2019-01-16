@@ -27,10 +27,11 @@
                     </div>
                     <div class="form-group">
                         <ui-select-field v-model.number="start" label="起征额">
+                            <ui-menu-item value="5000" title="5000"/>
                             <ui-menu-item value="3500" title="3500"/>
                             <ui-menu-item value="4800" title="4800"/>
                         </ui-select-field>
-                        <div>本地 3500 元；外籍及港、澳、台 4800 元</div>
+                        <div class="tip">大陆 5000 元；外籍及港、澳、台 4800 元</div>
 
                         <!--<label class="control-label col-sm-3">起征额：</label>-->
                         <!--<div class="col-sm-9">-->
@@ -51,7 +52,6 @@
                 </div>
             </div>
             <div class="result" v-if="result">
-                <h4 class="result-title">计算结果</h4>
                 <ul class="result-list">
                     <li>应缴税款：<span class="strong">{{ result.edTaxSum }}</span> 元</li>
                     <li>税后收入：<span class="strong">{{ result.fullSum }}</span> 元</li>
@@ -67,9 +67,9 @@
         data () {
             return {
                 type: '1',
-                total: 11700,
+                total: null,
                 insure: 0,
-                start: '3500',
+                start: '5000',
                 result: null,
                 page: {
                     menu: [
@@ -85,7 +85,16 @@
         mounted () {
         },
         methods: {
-            calculate: function () {
+            calculate() {
+                this.result = null
+
+                if (!this.total) {
+                    this.$message({
+                        type: 'danger',
+                        text: '请输入收入总额'
+                    })
+                    return
+                }
                 var total = parseFloat(this.total)
                 var B = parseFloat(this.insure)
                 var C = parseFloat(this.start)
@@ -217,5 +226,12 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.tip {
+    margin-bottom: 16px;
+    color: #999;
+}
+.result {
+    margin-top: 16px;
+}
 </style>

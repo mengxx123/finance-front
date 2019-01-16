@@ -119,6 +119,9 @@
                 let tmp = this.fromCode
                 this.fromCode = this.toCode
                 this.toCode = tmp
+                if (this.number) {
+                    this.convert()
+                }
             }
         }
     }
