@@ -16,6 +16,7 @@ const PensionHelp = resolve => require(['@/views/PensionHelp'], resolve)
 const Subject = resolve => require(['@/views/Subject'], resolve)
 const StampDuty = resolve => require(['@/views/StampDuty'], resolve)
 const Bank = resolve => require(['@/views/Bank'], resolve)
+const Rate = resolve => require(['@/views/Rate'], resolve)
 const Currency = resolve => require(['@/views/Currency'], resolve)
 const Error404 = resolve => require(['@/views/error/Error404'], resolve)
 
@@ -85,6 +86,10 @@ let routes = [
     {
         path: '/currency',
         component: Currency
+    },
+    {
+        path: '/rate',
+        component: Rate
     },
     {
         path: '*',

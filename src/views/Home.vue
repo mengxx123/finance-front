@@ -45,6 +45,12 @@
                                 desc: '银行卡号归属信息查询',
                                 icon: '/static/img/finance_bank_card.svg',
                                 to: '/bank'
+                            },
+                            {
+                                name: '利息计算器',
+                                desc: '',
+                                icon: '/static/img/finance.svg',
+                                to: '/rate'
                             }
                         ]
                     },
