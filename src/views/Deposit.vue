@@ -1,36 +1,38 @@
 <template>
     <my-page title="个人存款计算器" :page="page">
-        <div>
-            <div class="form-itemm">
-                <ui-select-field v-model="type" label="期限种类" hintText="请选择期限种类">
-                    <ui-menu-item value="00" title="活期"/>
-                    <ui-menu-item value="03" title="整存整取 三个月"/>
-                    <ui-menu-item value="06" title="整存整取 半年"/>
-                    <ui-menu-item value="12" title="整存整取 一年"/>
-                    <ui-menu-item value="24" title="整存整取 二年"/>
-                    <ui-menu-item value="36" title="整存整取 三年"/>
-                    <ui-menu-item value="60" title="整存整取 五年"/>
-                </ui-select-field>
+        <div class="common-container container">
+            <div>
+                <div class="form-itemm">
+                    <ui-select-field v-model="type" label="期限种类" hintText="请选择期限种类">
+                        <ui-menu-item value="00" title="活期"/>
+                        <ui-menu-item value="03" title="整存整取 三个月"/>
+                        <ui-menu-item value="06" title="整存整取 半年"/>
+                        <ui-menu-item value="12" title="整存整取 一年"/>
+                        <ui-menu-item value="24" title="整存整取 二年"/>
+                        <ui-menu-item value="36" title="整存整取 三年"/>
+                        <ui-menu-item value="60" title="整存整取 五年"/>
+                    </ui-select-field>
+                </div>
+                <div class="form-itemm">
+                    <ui-text-field v-model.number="amount" label="存款金额（元）"/>
+                </div>
+                <div class="form-itemm">
+                    <ui-text-field v-model.number="yrate" label="年利率（%）"/>
+                </div>
+                <div class="form-itemm">
+                    <ui-text-field v-model.number="term" label="存期（月）"/>
+                </div>
+                <div class="form-itemm">
+                    <ui-raised-button primary label="计算" @click="calculate" />
+                </div>
             </div>
-            <div class="form-itemm">
-                <ui-text-field v-model.number="amount" label="存款金额（元）"/>
+            <div class="result" v-if="result">
+                <ul class="result-list">
+                    <li>利息: <span class="strong">{{ result.interest }}</span></li>
+                    <li>扣除利息税：<span class="strong">{{ result.tax }}</span></li>
+                    <li>本息合计（税后）：<span class="strong">{{ result.result }}</span></li>
+                </ul>
             </div>
-            <div class="form-itemm">
-                <ui-text-field v-model.number="yrate" label="年利率（%）"/>
-            </div>
-            <div class="form-itemm">
-                <ui-text-field v-model.number="term" label="存期（月）"/>
-            </div>
-            <div class="form-itemm">
-                <ui-raised-button primary label="计算" @click="calculate" />
-            </div>
-        </div>
-        <div class="result" v-if="result">
-            <ul class="result-list">
-                <li>利息: <span class="strong">{{ result.interest }}</span></li>
-                <li>扣除利息税：<span class="strong">{{ result.tax }}</span></li>
-                <li>本息合计（税后）：<span class="strong">{{ result.result }}</span></li>
-            </ul>
         </div>
     </my-page>
 </template>

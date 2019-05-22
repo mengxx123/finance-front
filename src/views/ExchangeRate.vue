@@ -1,39 +1,41 @@
 <template>
     <my-page title="汇率查询">
-        <div class="search-bar">
-            <input class="input" v-model="keyword" placeholder="输入货币名称或代码快速搜索" />
-            <ui-icon-button icon="close" color="#999" v-if="keyword.length" @click="keyword = ''" />
+        <div class="common-container container">
+            <div class="search-bar">
+                <input class="input" v-model="keyword" placeholder="输入货币名称或代码快速搜索" />
+                <ui-icon-button icon="close" color="#999" v-if="keyword.length" @click="keyword = ''" />
+            </div>
+            <div class="empty" v-if="keyword && !filteRates.length">
+                搜索不到结果~
+            </div>
+            <ui-article class="article" v-if="filteRates.length">
+                <p>更新于：{{ time }}</p>
+                <table>
+                    <tr>
+                        <!--<th>国家</th>-->
+                        <th>名称</th>
+                        <th>代码</th>
+                        <th>数值</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img class="flag" :src="getFlagSrc(base)">
+                            {{ country[base] }}（基准）
+                        </td>
+                        <td>{{ base }}</td>
+                        <td>1</td>
+                    </tr>
+                    <tr v-for="rate in filteRates">
+                        <td>
+                            <img class="flag" :src="getFlagSrc(rate.code)">
+                            {{ country[rate.code] }}
+                        </td>
+                        <td>{{ rate.code }}</td>
+                        <td>{{ rate.value }}</td>
+                    </tr>
+                </table>
+            </ui-article>
         </div>
-        <div class="empty" v-if="keyword && !filteRates.length">
-            搜索不到结果~
-        </div>
-        <ui-article class="article" v-if="filteRates.length">
-            <p>更新于：{{ time }}</p>
-            <table>
-                <tr>
-                    <!--<th>国家</th>-->
-                    <th>名称</th>
-                    <th>代码</th>
-                    <th>数值</th>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="flag" :src="getFlagSrc(base)">
-                        {{ country[base] }}（基准）
-                    </td>
-                    <td>{{ base }}</td>
-                    <td>1</td>
-                </tr>
-                <tr v-for="rate in filteRates">
-                    <td>
-                        <img class="flag" :src="getFlagSrc(rate.code)">
-                        {{ country[rate.code] }}
-                    </td>
-                    <td>{{ rate.code }}</td>
-                    <td>{{ rate.value }}</td>
-                </tr>
-            </table>
-        </ui-article>
     </my-page>
 </template>
 

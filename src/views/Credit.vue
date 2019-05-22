@@ -1,56 +1,58 @@
 <template>
     <my-page title="信用卡分期计算器" :page="page">
-        <div>
-            <div class="form-itemm">
-                <ui-select-field v-model="bank" label="银行" :maxHeight="300">
-                    <ui-menu-item value="1" title="北京银行"/>
-                    <ui-menu-item value="2" title="工商银行"/>
-                    <ui-menu-item value="17" title="包商银行"/>
-                    <ui-menu-item value="16" title="中信银行"/>
-                    <ui-menu-item value="18" title="重庆银行"/>
-                    <ui-menu-item value="6" title="建设银行"/>
-                    <ui-menu-item value="11" title="浦发银行"/>
-                    <ui-menu-item value="4" title="广发银行"/>
-                    <ui-menu-item value="3" title="光大银行"/>
-                    <ui-menu-item value="14" title="招商银行"/>
-                    <ui-menu-item value="5" title="华夏银行"/>
-                    <ui-menu-item value="15" title="中国银行"/>
-                    <ui-menu-item value="9" title="农业银行"/>
+        <div class="common-container container">
+            <div>
+                <div class="form-itemm">
+                    <ui-select-field v-model="bank" label="银行" :maxHeight="300">
+                        <ui-menu-item value="1" title="北京银行"/>
+                        <ui-menu-item value="2" title="工商银行"/>
+                        <ui-menu-item value="17" title="包商银行"/>
+                        <ui-menu-item value="16" title="中信银行"/>
+                        <ui-menu-item value="18" title="重庆银行"/>
+                        <ui-menu-item value="6" title="建设银行"/>
+                        <ui-menu-item value="11" title="浦发银行"/>
+                        <ui-menu-item value="4" title="广发银行"/>
+                        <ui-menu-item value="3" title="光大银行"/>
+                        <ui-menu-item value="14" title="招商银行"/>
+                        <ui-menu-item value="5" title="华夏银行"/>
+                        <ui-menu-item value="15" title="中国银行"/>
+                        <ui-menu-item value="9" title="农业银行"/>
 
-                    <ui-menu-item value="13" title="兴业银行"/>
-                    <ui-menu-item value="28" title="广州银行"/>
-                    <ui-menu-item value="20" title="上海银行"/>
-                    <ui-menu-item value="334" title="渣打银行"/>
-                    <ui-menu-item value="7" title="交通银行"/>
-                    <ui-menu-item value="8" title="民生银行"/>
-                    <ui-menu-item value="31" title="花旗银行"/>
-                </ui-select-field>
+                        <ui-menu-item value="13" title="兴业银行"/>
+                        <ui-menu-item value="28" title="广州银行"/>
+                        <ui-menu-item value="20" title="上海银行"/>
+                        <ui-menu-item value="334" title="渣打银行"/>
+                        <ui-menu-item value="7" title="交通银行"/>
+                        <ui-menu-item value="8" title="民生银行"/>
+                        <ui-menu-item value="31" title="花旗银行"/>
+                    </ui-select-field>
+                </div>
+                <div class="form-itemm">
+                    <ui-select-field v-model.number="stage" label="期数" :maxHeight="300">
+                        <ui-menu-item value="3" title="3期（3个月）"/>
+                        <ui-menu-item value="6" title="6期（6个月）"/>
+                        <ui-menu-item value="9" title="9期（9个月）"/>
+                        <ui-menu-item value="12" title="12期（一年）"/>
+                        <ui-menu-item value="15" title="15期（一年三个月）"/>
+                        <ui-menu-item value="18" title="18期（一年半）"/>
+                        <ui-menu-item value="24" title="24期（两年）"/>
+                    </ui-select-field>
+                </div>
+                <div class="form-itemm">
+                    <ui-text-field v-model.number="money" label="金额（元）"/>
+                </div>
+                <div class="form-itemm">
+                    <ui-raised-button primary label="计算" @click="calculate" />
+                </div>
             </div>
-            <div class="form-itemm">
-                <ui-select-field v-model.number="stage" label="期数" :maxHeight="300">
-                    <ui-menu-item value="3" title="3期（3个月）"/>
-                    <ui-menu-item value="6" title="6期（6个月）"/>
-                    <ui-menu-item value="9" title="9期（9个月）"/>
-                    <ui-menu-item value="12" title="12期（一年）"/>
-                    <ui-menu-item value="15" title="15期（一年三个月）"/>
-                    <ui-menu-item value="18" title="18期（一年半）"/>
-                    <ui-menu-item value="24" title="24期（两年）"/>
-                </ui-select-field>
+            <div class="result" v-if="result">
+                <ul class="result-list">
+                    <li>总利息（手续费）：<span class="strong">{{ result.interest }}</span> 元</li>
+                    <li>总计还款金额：<span class="strong">{{ result.total }}</span> 元</li>
+                    <li>每期（月）还款金额：<span class="strong">{{ result.monthlyMoney }}</span> 元</li>
+                    <li>每日利息（手续费）金额：<span class="strong">{{ result.dailyMoney }}</span> 元</li>
+                </ul>
             </div>
-            <div class="form-itemm">
-                <ui-text-field v-model.number="money" label="金额（元）"/>
-            </div>
-            <div class="form-itemm">
-                <ui-raised-button primary label="计算" @click="calculate" />
-            </div>
-        </div>
-        <div class="result" v-if="result">
-            <ul class="result-list">
-                <li>总利息（手续费）：<span class="strong">{{ result.interest }}</span> 元</li>
-                <li>总计还款金额：<span class="strong">{{ result.total }}</span> 元</li>
-                <li>每期（月）还款金额：<span class="strong">{{ result.monthlyMoney }}</span> 元</li>
-                <li>每日利息（手续费）金额：<span class="strong">{{ result.dailyMoney }}</span> 元</li>
-            </ul>
         </div>
     </my-page>
 </template>

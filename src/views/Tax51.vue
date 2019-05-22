@@ -1,204 +1,206 @@
 <template>
     <my-page title="五险一金计算器" :page="page">
-        <ui-article>
-            <div id="calc">
-                <table>
-                    <tr>
-                        <td class="column1" style="width: 120px;">基本工资
-                        </td>
-                        <td colspan="3">
-                            <input id="txtBasicIncome" class="itxt" type="text" value="" onkeydown="enterToCalc()" />
-                            <span class="unit">元</span><label id="lblMsgBasicIncome" class="warning"></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="column1">社保基数
-                        </td>
-                        <td colspan="3">
-                            <input id="txtSocialBase" name="txtSocialBase" class="itxt" type="text" value="" style="background-color: lightgray" readonly />
-                            <span class="unit">元</span>
-                            <label for="chbSocialBase">
-                                <input id="chbSocialBase" type="checkbox" onclick="chbSocialBase_onClick();" />自定义</label>
-                            <label id="lblMsgSocialBase" class="warning"></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="column1">住房公积金基数
-                        </td>
-                        <td colspan="3">
-                            <input id="txtFundBase" class="itxt" type="text" style="background-color: lightgray" readonly />
-                            <span class="unit">元</span>
-                            <label for="chbFundBase">
-                                <input id="chbFundBase" type="checkbox" onclick="chbFundBase_onClick();" />自定义</label>
-                            <label id="lblMsgFundBase" class="warning"></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="9">
-                            <input type="button" class="changebutton" id="btnCalc" onclick="btnCalc_onClick()" value="计 算" />
-                            <input type="button" class="changebutton" id="btnReset" onclick="btnReset_onClick()" value="重 置" />
-                        </td>
-                    </tr>
-                </table>
-                <table id="insure_detail" class="insure_detail">
-                    <tr>
-                        <th colspan="3">个人缴纳部分</th>
-                        <th colspan="3">单位缴纳部分</th>
-                    </tr>
-                    <tr>
-                        <td class="tdA">养老保险金
-                        </td>
-                        <td class="tdB">
-                            <input id="txtP_Pension_Percent" class="itxt rightblue" type="text" style="width: 60px; text-align: center;" />
-                            <span class="unit">%</span>
-                        </td>
-                        <td class="tdC">
-                            <label id="lblP_Pension"></label>
-                        </td>
-                        <td class="tdD">养老保险金
-                        </td>
-                        <td class="tdE">
-                            <input id="txtU_Pension_Percent" class="itxt rightblue" type="text" style="width: 60px; text-align: center;" />
-                            <span class="unit">%</span>
-                        </td>
-                        <td class="tdF">
-                            <label id="lblU_Pension"></label>
-                        </td>
-                    </tr>
+        <div class="common-container container">
+            <ui-article>
+                <div id="calc">
+                    <table>
+                        <tr>
+                            <td class="column1" style="width: 120px;">基本工资
+                            </td>
+                            <td colspan="3">
+                                <input id="txtBasicIncome" class="itxt" type="text" value="" onkeydown="enterToCalc()" />
+                                <span class="unit">元</span><label id="lblMsgBasicIncome" class="warning"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="column1">社保基数
+                            </td>
+                            <td colspan="3">
+                                <input id="txtSocialBase" name="txtSocialBase" class="itxt" type="text" value="" style="background-color: lightgray" readonly />
+                                <span class="unit">元</span>
+                                <label for="chbSocialBase">
+                                    <input id="chbSocialBase" type="checkbox" onclick="chbSocialBase_onClick();" />自定义</label>
+                                <label id="lblMsgSocialBase" class="warning"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="column1">住房公积金基数
+                            </td>
+                            <td colspan="3">
+                                <input id="txtFundBase" class="itxt" type="text" style="background-color: lightgray" readonly />
+                                <span class="unit">元</span>
+                                <label for="chbFundBase">
+                                    <input id="chbFundBase" type="checkbox" onclick="chbFundBase_onClick();" />自定义</label>
+                                <label id="lblMsgFundBase" class="warning"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="9">
+                                <input type="button" class="changebutton" id="btnCalc" onclick="btnCalc_onClick()" value="计 算" />
+                                <input type="button" class="changebutton" id="btnReset" onclick="btnReset_onClick()" value="重 置" />
+                            </td>
+                        </tr>
+                    </table>
+                    <table id="insure_detail" class="insure_detail">
+                        <tr>
+                            <th colspan="3">个人缴纳部分</th>
+                            <th colspan="3">单位缴纳部分</th>
+                        </tr>
+                        <tr>
+                            <td class="tdA">养老保险金
+                            </td>
+                            <td class="tdB">
+                                <input id="txtP_Pension_Percent" class="itxt rightblue" type="text" style="width: 60px; text-align: center;" />
+                                <span class="unit">%</span>
+                            </td>
+                            <td class="tdC">
+                                <label id="lblP_Pension"></label>
+                            </td>
+                            <td class="tdD">养老保险金
+                            </td>
+                            <td class="tdE">
+                                <input id="txtU_Pension_Percent" class="itxt rightblue" type="text" style="width: 60px; text-align: center;" />
+                                <span class="unit">%</span>
+                            </td>
+                            <td class="tdF">
+                                <label id="lblU_Pension"></label>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td class="tdA">医疗保险金
-                        </td>
-                        <td class="tdB">
-                            <input id="txtP_Medical_Percent" class="itxt rightblue" type="text" style="width: 60px; text-align: center;" />
-                            <span class="unit">%</span>
-                        </td>
-                        <td class="tdC">
-                            <label id="lblP_Medical"></label>
-                        </td>
+                        <tr>
+                            <td class="tdA">医疗保险金
+                            </td>
+                            <td class="tdB">
+                                <input id="txtP_Medical_Percent" class="itxt rightblue" type="text" style="width: 60px; text-align: center;" />
+                                <span class="unit">%</span>
+                            </td>
+                            <td class="tdC">
+                                <label id="lblP_Medical"></label>
+                            </td>
 
-                        <td class="tdD">医疗保险金
-                        </td>
-                        <td class="tdE">
-                            <input id="txtU_Medical_Percent" class="itxt rightblue" type="text" style="width: 60px; text-align: center;" />
-                            <span class="unit">%</span>
-                        </td>
-                        <td class="tdF">
-                            <label id="lblU_Medical"></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tdA">失业保险金
-                        </td>
-                        <td class="tdB">
-                            <input id="txtP_LoseJob_Percent" class="itxt rightblue" type="text" style="width: 60px; text-align: center;" />
-                            <span class="unit">%</span>
-                        </td>
-                        <td class="tdC">
-                            <label id="lblP_LoseJob"></label>
-                        </td>
-                        <td class="tdD">失业保险金
-                        </td>
-                        <td class="tdE">
-                            <input id="txtU_LoseJob_Percent" class="itxt rightblue" type="text" style="width: 60px; text-align: center;" />
-                            <span class="unit">%</span>
-                        </td>
+                            <td class="tdD">医疗保险金
+                            </td>
+                            <td class="tdE">
+                                <input id="txtU_Medical_Percent" class="itxt rightblue" type="text" style="width: 60px; text-align: center;" />
+                                <span class="unit">%</span>
+                            </td>
+                            <td class="tdF">
+                                <label id="lblU_Medical"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdA">失业保险金
+                            </td>
+                            <td class="tdB">
+                                <input id="txtP_LoseJob_Percent" class="itxt rightblue" type="text" style="width: 60px; text-align: center;" />
+                                <span class="unit">%</span>
+                            </td>
+                            <td class="tdC">
+                                <label id="lblP_LoseJob"></label>
+                            </td>
+                            <td class="tdD">失业保险金
+                            </td>
+                            <td class="tdE">
+                                <input id="txtU_LoseJob_Percent" class="itxt rightblue" type="text" style="width: 60px; text-align: center;" />
+                                <span class="unit">%</span>
+                            </td>
 
-                        <td class="tdF">
-                            <label id="lblU_LoseJob"></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td class="tdD">工伤保险金
-                        </td>
-                        <td class="tdE">
-                            <input id="txtU_Injury_Percent" class="itxt rightblue" type="text" style="width: 60px; text-align: center;" />
-                            <span class="unit">%</span>
-                        </td>
-                        <td class="tdF">
-                            <label id="lblU_Injury"></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td class="tdD">生育保险金
-                        </td>
-                        <td class="tdE">
-                            <input id="txtU_Birth_Percent" class="itxt rightblue" type="text" style="width: 60px; text-align: center;" />
-                            <span class="unit">%</span>
-                        </td>
-                        <td class="tdF">
-                            <label id="lblU_Birth"></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tdA">住房公积金</td>
-                        <td class="tdB">
-                            <input id="txtP_HouseFund_Pencent" class="itxt rightblue" type="text" style="width: 60px; text-align: center;" />
-                            <span class="unit">%</span>
-                        </td>
+                            <td class="tdF">
+                                <label id="lblU_LoseJob"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="tdD">工伤保险金
+                            </td>
+                            <td class="tdE">
+                                <input id="txtU_Injury_Percent" class="itxt rightblue" type="text" style="width: 60px; text-align: center;" />
+                                <span class="unit">%</span>
+                            </td>
+                            <td class="tdF">
+                                <label id="lblU_Injury"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="tdD">生育保险金
+                            </td>
+                            <td class="tdE">
+                                <input id="txtU_Birth_Percent" class="itxt rightblue" type="text" style="width: 60px; text-align: center;" />
+                                <span class="unit">%</span>
+                            </td>
+                            <td class="tdF">
+                                <label id="lblU_Birth"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdA">住房公积金</td>
+                            <td class="tdB">
+                                <input id="txtP_HouseFund_Pencent" class="itxt rightblue" type="text" style="width: 60px; text-align: center;" />
+                                <span class="unit">%</span>
+                            </td>
 
-                        <td class="tdC">
-                            <label id="lblP_HouseFund"></label>
-                        </td>
-                        <td class="tdD">住房公积金
-                        </td>
-                        <td class="tdE">
-                            <input id="txtU_HouseFund_Pencent" class="itxt rightblue" type="text" style="width: 60px; text-align: center;" />
-                            <span class="unit">%</span>
-                        </td>
-                        <td class="tdF">
-                            <label id="lblU_HouseFund"></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tdA">补充住房公积金</td>
-                        <td class="tdB">
-                            <input id="txtP_AddHouseFund_Pencent" class="itxt rightblue" type="text" style="width: 60px; text-align: center;" />
-                            <span class="unit">%</span>
-                        </td>
+                            <td class="tdC">
+                                <label id="lblP_HouseFund"></label>
+                            </td>
+                            <td class="tdD">住房公积金
+                            </td>
+                            <td class="tdE">
+                                <input id="txtU_HouseFund_Pencent" class="itxt rightblue" type="text" style="width: 60px; text-align: center;" />
+                                <span class="unit">%</span>
+                            </td>
+                            <td class="tdF">
+                                <label id="lblU_HouseFund"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdA">补充住房公积金</td>
+                            <td class="tdB">
+                                <input id="txtP_AddHouseFund_Pencent" class="itxt rightblue" type="text" style="width: 60px; text-align: center;" />
+                                <span class="unit">%</span>
+                            </td>
 
-                        <td class="tdC">
-                            <label id="lblP_AddHouseFund"></label>
-                        </td>
-                        <td class="tdD">补充住房公积金
-                        </td>
-                        <td class="tdE">
-                            <input id="txtU_AddHouseFund_Pencent" class="itxt rightblue" type="text" style="width: 60px; text-align: center;" />
-                            <span class="unit">%</span>
-                        </td>
-                        <td class="tdF">
-                            <label id="lblU_AddHouseFund"></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="tdA" style="color: red;">共计支出</td>
-                        <td class="tdB"></td>
+                            <td class="tdC">
+                                <label id="lblP_AddHouseFund"></label>
+                            </td>
+                            <td class="tdD">补充住房公积金
+                            </td>
+                            <td class="tdE">
+                                <input id="txtU_AddHouseFund_Pencent" class="itxt rightblue" type="text" style="width: 60px; text-align: center;" />
+                                <span class="unit">%</span>
+                            </td>
+                            <td class="tdF">
+                                <label id="lblU_AddHouseFund"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdA" style="color: red;">共计支出</td>
+                            <td class="tdB"></td>
 
-                        <td class="tdC">
-                            <label id="lblP_Total"></label>
-                        </td>
-                        <td class="tdD" style="color: red;">共计支出
-                        </td>
-                        <td class="tdE"></td>
-                        <td class="tdF">
-                            <label id="lblU_Total"></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="6" class="empty_row"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="6" class="empty_row"></td>
-                    </tr>
-                </table>
-            </div>
-        </ui-article>
+                            <td class="tdC">
+                                <label id="lblP_Total"></label>
+                            </td>
+                            <td class="tdD" style="color: red;">共计支出
+                            </td>
+                            <td class="tdE"></td>
+                            <td class="tdF">
+                                <label id="lblU_Total"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" class="empty_row"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" class="empty_row"></td>
+                        </tr>
+                    </table>
+                </div>
+            </ui-article>
+        </div>
     </my-page>
 </template>
 

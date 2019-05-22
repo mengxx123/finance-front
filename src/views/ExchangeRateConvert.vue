@@ -1,28 +1,30 @@
 <template>
     <my-page title="汇率转换">
-        <ui-text-field v-model.number="number" label="金额" hintText="要兑换的货币数额" />
-        <br>
-        <ui-select-field v-model="fromCode" label="原始货币" :maxHeight="300">
-            <ui-menu-item
-                :value="item.code"
-                :title="`${country[item.code]}（${item.code}）`"
-                v-for="item in rates" :key="item.code" />
-        </ui-select-field>
-        <br>
-        <ui-select-field v-model="toCode" label="目标货币" :maxHeight="300">
-            <ui-menu-item
-                :value="item.code"
-                :title="`${country[item.code]}（${item.code}）`"
-                v-for="item in rates" :key="item.code" />
-        </ui-select-field>
-        <br>
-        <div class="btns">
-            <ui-raised-button class="btn" label="转换" primary @click="convert" />
-            <ui-raised-button class="btn" label="交换" @click="exchange" />
-        </div>
-        <div class="result">{{ result }}</div>
-        <div class="info" v-if="time">
-            数据更新于：{{ time }}
+        <div class="common-container container">
+            <ui-text-field v-model.number="number" label="金额" hintText="要兑换的货币数额" />
+            <br>
+            <ui-select-field v-model="fromCode" label="原始货币" :maxHeight="300">
+                <ui-menu-item
+                    :value="item.code"
+                    :title="`${country[item.code]}（${item.code}）`"
+                    v-for="item in rates" :key="item.code" />
+            </ui-select-field>
+            <br>
+            <ui-select-field v-model="toCode" label="目标货币" :maxHeight="300">
+                <ui-menu-item
+                    :value="item.code"
+                    :title="`${country[item.code]}（${item.code}）`"
+                    v-for="item in rates" :key="item.code" />
+            </ui-select-field>
+            <br>
+            <div class="btns">
+                <ui-raised-button class="btn" label="转换" primary @click="convert" />
+                <ui-raised-button class="btn" label="交换" @click="exchange" />
+            </div>
+            <div class="result">{{ result }}</div>
+            <div class="info" v-if="time">
+                数据更新于：{{ time }}
+            </div>
         </div>
     </my-page>
 </template>

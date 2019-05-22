@@ -1,26 +1,28 @@
 <template>
     <my-page title="银行卡号归属信息查询" :page="page">
-        <div class="tool-box-body">
-            <div class="form-horizontal">
-                <div class="form-group">
-                    <ui-text-field v-model="number" label="银行卡号"/>
+        <div class="common-container container">
+            <div class="tool-box-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <ui-text-field v-model="number" label="银行卡号"/>
+                    </div>
                 </div>
-            </div>
-            <div class="btns">
-                <ui-raised-button class="btn" label="查询" primary @click="query" />
-                <ui-raised-button class="btn" label="清空" @click="clear" />
-            </div>
-            <div class="ui-loading" v-if="loading">
-                <ui-circular-progress :size="24"/>
-            </div>
-            <div class="result" v-if="result && result !== -1">
-                <ul class="result-list">
-                    <li>银行名称：<span class="strong">{{ result.bank }}</span></li>
-                    <li>卡类型：<span class="strong">{{ result.cardType }}</span></li>
-                </ul>
-            </div>
-            <div v-if="result === -1">
-                找不到银行卡
+                <div class="btns">
+                    <ui-raised-button class="btn" label="查询" primary @click="query" />
+                    <ui-raised-button class="btn" label="清空" @click="clear" />
+                </div>
+                <div class="ui-loading" v-if="loading">
+                    <ui-circular-progress :size="24"/>
+                </div>
+                <div class="result" v-if="result && result !== -1">
+                    <ul class="result-list">
+                        <li>银行名称：<span class="strong">{{ result.bank }}</span></li>
+                        <li>卡类型：<span class="strong">{{ result.cardType }}</span></li>
+                    </ul>
+                </div>
+                <div v-if="result === -1">
+                    找不到银行卡
+                </div>
             </div>
         </div>
     </my-page>

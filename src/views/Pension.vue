@@ -1,24 +1,26 @@
 <template>
     <my-page title="退休养老保险金计算器" :page="page">
-        <div>
-            <div class="form-itemm">
+        <div class="common-container container">
+            <div>
                 <div class="form-itemm">
-                    <ui-text-field v-model.number="average" label="上年度月平均工资"/>
+                    <div class="form-itemm">
+                        <ui-text-field v-model.number="average" label="上年度月平均工资"/>
+                    </div>
+                </div>
+                <div class="form-itemm">
+                    <div class="form-itemm">
+                        <ui-text-field v-model.number="total" label="您帐户累积的养老金额"/>
+                    </div>
+                </div>
+                <div class="form-itemm">
+                    <ui-raised-button primary label="计算" @click="calculate" />
                 </div>
             </div>
-            <div class="form-itemm">
-                <div class="form-itemm">
-                    <ui-text-field v-model.number="total" label="您帐户累积的养老金额"/>
-                </div>
+            <div class="result" v-if="result">
+                <ul class="result-list">
+                    <li>退休后每月基础养老金为： <span class="strong">{{ result }} 元</span></li>
+                </ul>
             </div>
-            <div class="form-itemm">
-                <ui-raised-button primary label="计算" @click="calculate" />
-            </div>
-        </div>
-        <div class="result" v-if="result">
-            <ul class="result-list">
-                <li>退休后每月基础养老金为： <span class="strong">{{ result }} 元</span></li>
-            </ul>
         </div>
     </my-page>
 </template>

@@ -1,61 +1,63 @@
 <template>
     <my-page title="个人所得税计算器" :page="page">
-        <div class="tool-box-body">
-            <div class="form-horizontal">
-                <div class="form-group">
-                    <ui-select-field v-model="type" label="收入类型">
-                        <ui-menu-item value="1" title="工资、薪金所得"/>
-                        <ui-menu-item value="2" title="个体工商户生产、经营所得"/>
-                        <ui-menu-item value="3" title="对企事业单位的承包经营"/>
-                        <ui-menu-item value="4" title="劳务报酬所得"/>
-                        <ui-menu-item value="5" title="稿酬所得"/>
-                        <ui-menu-item value="6" title="特需权使用费所得"/>
-                        <ui-menu-item value="7" title="财产租赁所得"/>
-                        <ui-menu-item value="8" title="财产转让所得"/>
-                        <ui-menu-item value="9" title="利息、股息、红利所得"/>
-                        <ui-menu-item value="10" title="偶然所得"/>
-                    </ui-select-field>
-                </div>
-                <div class="form-group">
-                    <ui-text-field v-model.number="total" label="收入总额"/>
-                    <span class="unit">元</span>
-                </div>
-                <div v-if="type === '1'">
+        <div class="common-container container">
+            <div class="tool-box-body">
+                <div class="form-horizontal">
                     <div class="form-group">
-                        <ui-text-field v-model.number="insure" label="五险一金"/>
-                        <span class="unit">元</span>
+                        <ui-select-field v-model="type" label="收入类型">
+                            <ui-menu-item value="1" title="工资、薪金所得"/>
+                            <ui-menu-item value="2" title="个体工商户生产、经营所得"/>
+                            <ui-menu-item value="3" title="对企事业单位的承包经营"/>
+                            <ui-menu-item value="4" title="劳务报酬所得"/>
+                            <ui-menu-item value="5" title="稿酬所得"/>
+                            <ui-menu-item value="6" title="特需权使用费所得"/>
+                            <ui-menu-item value="7" title="财产租赁所得"/>
+                            <ui-menu-item value="8" title="财产转让所得"/>
+                            <ui-menu-item value="9" title="利息、股息、红利所得"/>
+                            <ui-menu-item value="10" title="偶然所得"/>
+                        </ui-select-field>
                     </div>
                     <div class="form-group">
-                        <ui-select-field v-model.number="start" label="起征额">
-                            <ui-menu-item value="5000" title="5000"/>
-                            <ui-menu-item value="3500" title="3500"/>
-                            <ui-menu-item value="4800" title="4800"/>
-                        </ui-select-field>
-                        <div class="tip">大陆 5000 元；外籍及港、澳、台 4800 元</div>
+                        <ui-text-field v-model.number="total" label="收入总额"/>
+                        <span class="unit">元</span>
+                    </div>
+                    <div v-if="type === '1'">
+                        <div class="form-group">
+                            <ui-text-field v-model.number="insure" label="五险一金"/>
+                            <span class="unit">元</span>
+                        </div>
+                        <div class="form-group">
+                            <ui-select-field v-model.number="start" label="起征额">
+                                <ui-menu-item value="5000" title="5000"/>
+                                <ui-menu-item value="3500" title="3500"/>
+                                <ui-menu-item value="4800" title="4800"/>
+                            </ui-select-field>
+                            <div class="tip">大陆 5000 元；外籍及港、澳、台 4800 元</div>
 
-                        <!--<label class="control-label col-sm-3">起征额：</label>-->
-                        <!--<div class="col-sm-9">-->
-                            <!--<select class="form-control" v-model="start">-->
-                                <!--<option value="3500" selected>3500</option>-->
-                                <!--<option value="4800">4800</option>-->
-                            <!--</select>-->
-                            <!--&lt;!&ndash;                                        <input v-model.number="start" value="3500" class="form-control"> 元&ndash;&gt;-->
-                            <!--<div class="help-block"></div>-->
+                            <!--<label class="control-label col-sm-3">起征额：</label>-->
+                            <!--<div class="col-sm-9">-->
+                                <!--<select class="form-control" v-model="start">-->
+                                    <!--<option value="3500" selected>3500</option>-->
+                                    <!--<option value="4800">4800</option>-->
+                                <!--</select>-->
+                                <!--&lt;!&ndash;                                        <input v-model.number="start" value="3500" class="form-control"> 元&ndash;&gt;-->
+                                <!--<div class="help-block"></div>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <ui-raised-button label="计算" primary @click="calculate" />
+                        <!--<div class="col-sm-9 col-sm-offset-3">-->
+                            <!--<button class="btn btn-primary" @click="calculate">计算</button>-->
                         <!--</div>-->
                     </div>
                 </div>
-                <div class="form-group">
-                    <ui-raised-button label="计算" primary @click="calculate" />
-                    <!--<div class="col-sm-9 col-sm-offset-3">-->
-                        <!--<button class="btn btn-primary" @click="calculate">计算</button>-->
-                    <!--</div>-->
+                <div class="result" v-if="result">
+                    <ul class="result-list">
+                        <li>应缴税款：<span class="strong">{{ result.edTaxSum }}</span> 元</li>
+                        <li>税后收入：<span class="strong">{{ result.fullSum }}</span> 元</li>
+                    </ul>
                 </div>
-            </div>
-            <div class="result" v-if="result">
-                <ul class="result-list">
-                    <li>应缴税款：<span class="strong">{{ result.edTaxSum }}</span> 元</li>
-                    <li>税后收入：<span class="strong">{{ result.fullSum }}</span> 元</li>
-                </ul>
             </div>
         </div>
     </my-page>
