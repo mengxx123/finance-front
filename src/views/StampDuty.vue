@@ -1,5 +1,5 @@
 <template>
-    <my-page title="印花税计算器">
+    <my-page title="印花税计算器" :page="page">
         <div class="common-container container">
             <ui-article>
                     <table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -102,7 +102,18 @@
     export default {
         data () {
             return {
-                version: ''
+                version: '',
+                page: {
+                    menu: [
+                        {
+                            type: 'icon',
+                            icon: 'help',
+                            href: 'https://project.yunser.com/products/ab4dadf0248011eabd7877dfcefc10ef',
+                            target: '_blank',
+                            title: '帮助'
+                        }
+                    ]
+                }
             }
         },
         mounted() {

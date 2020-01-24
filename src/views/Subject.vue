@@ -1,5 +1,5 @@
 <template>
-    <my-page title="会计科目汇总表">
+    <my-page title="会计科目汇总表" :page="page">
         <div class="common-container container">
             <ui-article>
                 <div class="left-content">
@@ -769,7 +769,18 @@
     export default {
         data () {
             return {
-                version: ''
+                version: '',
+                page: {
+                    menu: [
+                        {
+                            type: 'icon',
+                            icon: 'help',
+                            href: 'https://project.yunser.com/products/7d985310248011eabd7877dfcefc10ef',
+                            target: '_blank',
+                            title: '帮助'
+                        }
+                    ]
+                }
             }
         },
         mounted() {

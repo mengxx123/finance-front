@@ -1,5 +1,5 @@
 <template>
-    <my-page title="世界各国货币">
+    <my-page title="世界各国货币" :page="page">
         <div class="common-container container">
             <ui-article>
                 <p class="tip">提示：按Ctrl+F搜索</p>
@@ -1166,7 +1166,18 @@
     export default {
         data () {
             return {
-                version: ''
+                version: '',
+                page: {
+                    menu: [
+                        {
+                            type: 'icon',
+                            icon: 'help',
+                            href: 'https://project.yunser.com/products/5c1d4f60248011eabd7877dfcefc10ef',
+                            target: '_blank',
+                            title: '帮助'
+                        }
+                    ]
+                }
             }
         },
         mounted() {

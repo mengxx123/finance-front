@@ -10,7 +10,6 @@ const ExchangeRateConvert = resolve => require(['@/views/ExchangeRateConvert'], 
 const Deposit = resolve => require(['@/views/Deposit'], resolve)
 const DepositHelp = resolve => require(['@/views/DepositHelp'], resolve)
 const Credit = resolve => require(['@/views/Credit'], resolve)
-const CreditHelp = resolve => require(['@/views/CreditHelp'], resolve)
 const Pension = resolve => require(['@/views/Pension'], resolve)
 const PensionHelp = resolve => require(['@/views/PensionHelp'], resolve)
 const Subject = resolve => require(['@/views/Subject'], resolve)
@@ -18,6 +17,8 @@ const StampDuty = resolve => require(['@/views/StampDuty'], resolve)
 const Bank = resolve => require(['@/views/Bank'], resolve)
 const Rate = resolve => require(['@/views/Rate'], resolve)
 const Currency = resolve => require(['@/views/Currency'], resolve)
+const CompoundInterest = resolve => require(['@/views/CompoundInterest'], resolve)
+const Loan = resolve => require(['@/views/Loan'], resolve)
 const Error404 = resolve => require(['@/views/error/Error404'], resolve)
 
 Vue.use(Router)
@@ -30,6 +31,14 @@ let routes = [
     {
         path: '/tax',
         component: Tax
+    },
+    {
+        path: '/loan',
+        component: Loan
+    },
+    {
+        path: '/compoundInterest',
+        component: CompoundInterest
     },
     {
         path: '/tax/help',
@@ -58,10 +67,6 @@ let routes = [
     {
         path: '/credit',
         component: Credit
-    },
-    {
-        path: '/credit/help',
-        component: CreditHelp
     },
     {
         path: '/pension',

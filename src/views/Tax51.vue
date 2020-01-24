@@ -209,6 +209,17 @@
     export default {
         data () {
             return {
+                page: {
+                    menu: [
+                        {
+                            type: 'icon',
+                            icon: 'help',
+                            href: 'https://project.yunser.com/products/14fc5870247f11eabd7877dfcefc10ef',
+                            target: '_blank',
+                            title: '帮助'
+                        }
+                    ]
+                }
             }
         },
         mounted () {

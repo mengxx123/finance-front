@@ -47,11 +47,13 @@
                 result: null,
                 page: {
                     menu: [
-                        // {
-                        //     type: 'icon',
-                        //     icon: 'help',
-                        //     to: '/tax/help'
-                        // }
+                        {
+                            type: 'icon',
+                            icon: 'help',
+                            href: 'https://project.yunser.com/products/4b1d7650247f11eabd7877dfcefc10ef',
+                            target: '_blank',
+                            title: '帮助'
+                        }
                     ]
                 }
             }

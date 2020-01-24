@@ -8,7 +8,7 @@
                 <ui-list-item title="首页" to="/">
                     <ui-icon slot="left" value="home"/>
                 </ui-list-item>
-                <ui-list-item title="关于/帮助" href="https://project.yunser.com/products/e89dca900f5611e99bb1556107cdac2c" target="_blank">
+                <ui-list-item title="帮助" href="https://project.yunser.com/products/e89dca900f5611e99bb1556107cdac2c" target="_blank">
                     <ui-icon slot="left" value="help"/>
                 </ui-list-item>
             </ui-list>

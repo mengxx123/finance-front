@@ -1,5 +1,5 @@
 <template>
-    <my-page title="汇率转换">
+    <my-page title="汇率转换" :page="page">
         <div class="common-container container">
             <ui-text-field v-model.number="number" label="金额" hintText="要兑换的货币数额" />
             <br>
@@ -44,7 +44,18 @@
                 rates: [],
                 country: country,
                 time: '',
-                keyword: ''
+                keyword: '',
+                page: {
+                    menu: [
+                        {
+                            type: 'icon',
+                            icon: 'help',
+                            href: 'https://project.yunser.com/products/e6f47b50247f11eabd7877dfcefc10ef',
+                            target: '_blank',
+                            title: '帮助'
+                        }
+                    ]
+                }
             }
         },
         computed: {

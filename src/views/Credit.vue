@@ -252,7 +252,9 @@
                         {
                             type: 'icon',
                             icon: 'help',
-                            to: '/credit/help'
+                            href: 'https://project.yunser.com/products/d2d13040248011eabd7877dfcefc10ef',
+                            target: '_blank',
+                            title: '帮助'
                         }
                     ]
                 }

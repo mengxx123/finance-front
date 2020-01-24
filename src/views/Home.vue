@@ -7,6 +7,7 @@
 </template>
 
 <script>
+    /* eslint-disable */
     export default {
         data () {
             return {
@@ -53,7 +54,27 @@
                                 desc: '',
                                 icon: '/static/img/finance.svg',
                                 to: '/rate'
-                            }
+                            },
+                            {
+                                name: '贷款计算器',
+                                desc: '',
+                                icon: '/static/img/finance.svg',
+                                to: '/loan'
+                            },
+                            {
+                                name: '复利计算器',
+                                desc: '',
+                                icon: '/static/img/finance.svg',
+                                to: '/compoundInterest'
+                            },
+                            {
+                                name: '记账',
+                                desc: '',
+                                icon: '/static/img/finance.svg',
+                                to: '12',
+                                href: 'https://money.yunser.com/',
+                                target: '_blank'
+                            },
                         ]
                     },
                     {

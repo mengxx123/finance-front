@@ -39,7 +39,9 @@
                         {
                             type: 'icon',
                             icon: 'help',
-                            to: '/pension/help'
+                            href: 'https://project.yunser.com/products/2ce02690248111eabd7877dfcefc10ef',
+                            target: '_blank',
+                            title: '帮助'
                         }
                     ]
                 }
